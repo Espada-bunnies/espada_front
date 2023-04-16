@@ -1,9 +1,8 @@
-import Layout from "../components/layout/layout";
-
+import Header from "../components/layout/header/header";
 function App() {
   return (
     <>
-      <Layout></Layout>
+      <Header />
     </>
   );
 }
