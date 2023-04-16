@@ -2,7 +2,7 @@ import React from "react";
 import styles from "./header.module.scss";
 import classNames from "classnames/bind";
 
-import logo from "./images/header-logo.svg";
+import logo from "../../../assets/images/logo.svg";
 import search from "./images/header-search.svg";
 
 const cx = classNames.bind(styles);
