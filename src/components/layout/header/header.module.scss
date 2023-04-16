@@ -1,5 +1,7 @@
+@import '../../../assets/styles/variables.scss';
+
 .header {
-  background-color: #0c142d;
+  background-color: $color_dark;
   padding-top: 11px;
   padding-bottom: 11px;
 }
@@ -21,12 +23,12 @@
   padding-left: 16px;
   border: none;
   padding-right: 295px;
-  color: #e2e6e9;
-  background-color: #1e1e37;
+  color: $color_white;
+  background-color: $color_plashka;
   border-radius: 8px;
-  transition: 0.2s;
+  transition: $transition-base;
   &:focus-visible {
-    outline: 1px solid #6099d5;
+    outline: 1px solid $color_blue_gray;
   }
 }
 
@@ -37,15 +39,15 @@
 .link {
   text-decoration: none;
   font-size: 16px;
-  color: #e2e6e9;
+  color: $color_white;
   padding-top: 10px;
-  background-color: #6099d5;
+  background-color: $color_blue_gray;
   border-radius: 8px;
   padding-bottom: 10px;
   padding-left: 20px;
   padding-right: 20px;
-  border: 1px solid #6099d5;
-  transition: 0.2s;
+  border: 1px solid $color_blue_gray;
+  transition: $transition-base;
   &:hover {
     background: none;
   }
