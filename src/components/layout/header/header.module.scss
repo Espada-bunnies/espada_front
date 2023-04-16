@@ -1,0 +1,54 @@
+@import '../../../assets/styles/variables.scss';
+
+.header {
+  background-color: $color_dark;
+  padding-top: 11px;
+  padding-bottom: 11px;
+}
+
+.header__container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.search__form {
+  display: flex;
+  align-items: center;
+}
+
+.search__input {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 16px;
+  border: none;
+  padding-right: 295px;
+  color: $color_white;
+  background-color: $color_plashka;
+  border-radius: 8px;
+  transition: $transition-base;
+  &:focus-visible {
+    outline: 1px solid $color_blue_gray;
+  }
+}
+
+.search-image {
+  margin-left: -30px;
+}
+
+.link {
+  text-decoration: none;
+  font-size: 16px;
+  color: $color_white;
+  padding-top: 10px;
+  background-color: $color_blue_gray;
+  border-radius: 8px;
+  padding-bottom: 10px;
+  padding-left: 20px;
+  padding-right: 20px;
+  border: 1px solid $color_blue_gray;
+  transition: $transition-base;
+  &:hover {
+    background: none;
+  }
+}
