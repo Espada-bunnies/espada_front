@@ -4,38 +4,46 @@ import classNames from 'classnames/bind';
 
 import logo from '../../../assets/images/logo.svg';
 import search from './images/header-search.svg';
+import { Link, Outlet } from 'react-router-dom';
 
 const cx = classNames.bind(styles);
 
 const Header = () => {
   return (
-    <header className={cx('header')}>
-      <div className={cx('container', 'header__container')}>
-        <a href="/">
-          <img src={logo} alt="Espada" loading="eager" />
-        </a>
-        <div className={cx('form')}>
-          <form className={cx('search__form')}>
-            <input
-              type="text"
-              placeholder="Поиск"
-              className={cx('search__input')}
-            />
-            <img
-              src={search}
-              loading="eager"
-              aria-hidden="true"
-              alt=""
-              className={cx('search-image')}
-            />
-          </form>
+    <>
+      <header className={cx('header')}>
+        <div className={cx('container', 'header__container')}>
+          <a href="/">
+            <img src={logo} alt="Espada" loading="eager" />
+          </a>
+          <div className={cx('form')}>
+            <form className={cx('search__form')}>
+              <input
+                type='text'
+                placeholder='Поиск'
+                className={cx('search__input')}
+              />
+              <img
+                src={search}
+                loading="eager"
+                aria-hidden="true"
+                alt=""
+                className={cx('search-image')}
+              />
+            </form>
+          </div>
+         
+          <Link to='/login'>
+              <p className={cx('link')}>
+                Войти
+              </p>
+          </Link>
+
         </div>
-        <div></div>
-        <a href="/" className={cx('link')}>
-          Войти
-        </a>
-      </div>
-    </header>
+      </header>
+
+      <Outlet/>
+    </>
   );
 };
 

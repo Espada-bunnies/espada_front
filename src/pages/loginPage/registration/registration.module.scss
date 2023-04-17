@@ -1,0 +1,47 @@
+@import '../../../assets/styles/variables.scss';
+
+.registrationPage {
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+    .registration {
+        display: flex;
+        width: 400px;
+        flex-direction: column;
+    
+        input {
+            width: 400px;
+        }
+
+        .logoBLock {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+
+            img {
+                height: 53px;
+            }
+
+            p {
+                color: $color_white;
+                @include font(400, 20px);
+                margin-bottom: 48px;
+                margin-top: 8px;
+            }
+        }
+
+        form {
+            
+            p {
+                margin-top: 24px;
+                margin-bottom: 12px;
+                @include font(500, 16px);
+                text-align: center;
+                color: $color_white;
+            }
+        }
+    }
+}

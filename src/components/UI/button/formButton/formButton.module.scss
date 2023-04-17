@@ -1,0 +1,23 @@
+@import '../../../../assets/styles/variables.scss';
+
+.formButton {
+
+    padding: 10px;
+    background: $color_blue_gray;
+    border-radius: 8px;
+    width: 100%;
+    color: $color_white;
+    border: none;
+    @include font(500, 16px);
+
+    cursor: pointer;
+
+    &.active {
+        background: $color_background;
+        border: 1px solid $color_blue_gray;
+    }
+
+    &:disabled {
+        opacity: 0.5;
+    }
+}

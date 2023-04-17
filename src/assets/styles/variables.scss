@@ -10,6 +10,13 @@ $color_links: #bb7cd7;
 $color_red: #ef505c;
 $color_green: #17c055;
 
+@mixin font( $font-weight, $font-size ) {
+    font-family: 'Gilroy';
+    font-style: normal;
+    font-weight: $font-weight;
+    font-size: $font-size;
+}
+
 // Fonts
 $font-family-primary: '';
 $font-family-secondary: '';
