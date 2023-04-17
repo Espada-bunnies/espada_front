@@ -19,8 +19,8 @@ const Header = () => {
           <div className={cx('form')}>
             <form className={cx('search__form')}>
               <input
-                type='text'
-                placeholder='Поиск'
+                type="text"
+                placeholder="Поиск"
                 className={cx('search__input')}
               />
               <img
@@ -32,17 +32,14 @@ const Header = () => {
               />
             </form>
           </div>
-         
-          <Link to='/login'>
-              <p className={cx('link')}>
-                Войти
-              </p>
-          </Link>
 
+          <Link to="/login" className={cx('link')}>
+            Войти
+          </Link>
         </div>
       </header>
 
-      <Outlet/>
+      <Outlet />
     </>
   );
 };
