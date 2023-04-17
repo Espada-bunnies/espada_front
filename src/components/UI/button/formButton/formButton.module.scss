@@ -1,23 +1,33 @@
 @import '../../../../assets/styles/variables.scss';
 
 .formButton {
+  padding: 10px;
+  background: $color_blue_gray;
+  border-radius: 8px;
+  width: 100%;
+  color: $color_white;
+  border: 1px solid $color_blue_gray;
+  @include font(500, 16px);
+  cursor: pointer;
+  transition: $transition-base;
 
-    padding: 10px;
+  &:hover {
+    background-color: $color_background;
+  }
+
+  &.active {
+    background-color: $color_background;
+    border: 1px solid $color_blue_gray;
+    &:hover {
+      background-color: $color_blue_gray;
+    }
+  }
+
+  &:disabled {
+    opacity: 0.5;
     background: $color_blue_gray;
-    border-radius: 8px;
-    width: 100%;
-    color: $color_white;
-    border: none;
-    @include font(500, 16px);
-
-    cursor: pointer;
-
-    &.active {
-        background: $color_background;
-        border: 1px solid $color_blue_gray;
+    &:hover {
+      background: $color_blue_gray;
     }
-
-    &:disabled {
-        opacity: 0.5;
-    }
+  }
 }
