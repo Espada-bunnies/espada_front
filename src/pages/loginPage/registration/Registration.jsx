@@ -98,9 +98,9 @@ export default function Registration() {
           />
         </form>
         <div className={cx('wrapper-button')}>
-          <FormButton disabled={!formState}>Заргеистрироваться</FormButton>
+          <FormButton disabled={!formState}>Зарегистрироваться</FormButton>
           <p className={cx('text')}>Уже сть аккаунт?</p>
-          <Link to="/login">
+          <Link to="/login" className={cx('link-login')}>
             <FormButton active={true}>Войти</FormButton>
           </Link>
         </div>

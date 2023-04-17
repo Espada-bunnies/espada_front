@@ -46,8 +46,12 @@ input {
 
 .text {
   margin-top: 24px;
-  margin-bottom: 12px;
   @include font(500, 16px);
   text-align: center;
   color: $color_white;
+}
+
+.link-login {
+  display: block;
+  margin-top: 12px;
 }
