@@ -72,7 +72,7 @@ export default function Login() {
           <div className={cx('button-wrapper')}>
             <FormButton disabled={!formState}>Войти</FormButton>
             <p className={cx('text')}>Ещё нет аккаунта?</p>
-            <Link to="/reg">
+            <Link to="/reg" className={cx('link-registration')}>
               <FormButton active={true}>Зарегистрироваться</FormButton>
             </Link>
           </div>
