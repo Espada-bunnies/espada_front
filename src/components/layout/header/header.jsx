@@ -13,9 +13,9 @@ const Header = () => {
     <>
       <header className={cx('header')}>
         <div className={cx('container', 'header__container')}>
-          <a href="/">
+          <Link to='/'>
             <img src={logo} alt="Espada" loading="eager" />
-          </a>
+          </Link>
           <div className={cx('form')}>
             <form className={cx('search__form')}>
               <input
