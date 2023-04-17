@@ -1,58 +1,62 @@
 @import '../../../assets/styles/variables.scss';
 
-.loginPage {
-    height: 100vh;
-    width: 100vw;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+.login_page {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  background-color: $color_dark;
+  justify-content: center;
+}
 
-    .login {
-        display: flex;
-        width: 400px;
-        flex-direction: column;
+input {
+  width: 400px;
+}
 
-        input {
-            width: 400px;
-        }
+.logo_wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 
-        .logoBlock {
+.logo {
+  min-height: 53px;
+}
 
-            display: flex;
-            flex-direction: column;
-            align-items: center;
+.login_text {
+  color: $color_white;
+  @include font(400, 20px);
+  margin-top: 8px;
+}
 
-            img {
-                height: 53px;
-            }
+.form {
+  margin-top: 48px;
+}
 
-            p {
-                color: $color_white;
-                @include font(400, 20px);
-                margin-bottom: 48px;
-                margin-top: 8px;
-            }
-        }
+.link {
+  display: block;
+  cursor: pointer;
+  color: $color_accent;
+  text-underline-offset: 1px;
+  @include font(500, 16px);
+  text-align: center;
+  max-width: 125px;
+  margin-left: auto;
+  margin-right: auto;
+  transition: $transition-base;
+  margin-top: 16px;
+  &:hover {
+    color: $color_green;
+  }
+}
 
-        form {
+.button-wrapper {
+  margin-top: 12px;
+}
 
-            .link {
-
-                cursor: pointer;
-                color: $color_accent;
-                text-underline-offset: 1px;
-                @include font(500, 16px);
-                text-align: center;
-                margin-bottom: 12px;
-            }
-
-            p {
-                margin-top: 24px;
-                margin-bottom: 12px;
-                @include font(500, 16px);
-                text-align: center;
-                color: $color_white;
-            }
-        }
-    }
+.text {
+  margin-top: 24px;
+  margin-bottom: 12px;
+  @include font(500, 16px);
+  text-align: center;
+  color: $color_white;
 }
