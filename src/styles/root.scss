@@ -1,0 +1,23 @@
+:root{
+  --maxView: 1440px;
+  --container: 1360px;
+  --containerGapX: 15px;
+  --headerGap: 134px;
+
+  --transition-base: .4s;
+
+  --xl: 1360px;
+  --l: 1200px;
+  --m: 1000px;
+  --sm: 768px;
+  --s: 576px;
+  --xs: 320px;
+
+  @media (max-width: 1300px){
+    --maxView: 100%;
+    --container: 100%;
+    --containerGapX: 15px;
+    --headerGap: 65px;
+  }
+}
+

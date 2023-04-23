@@ -1,15 +1,15 @@
-@import '../../../../assets/styles/variables.scss';
+@use '@/styles/mixins' as *;
 
 .inputBlock {
-  margin-top: 16px;
+  margin-bottom: 16px;
   &:first-child {
     margin-top: 0;
   }
 
   label {
     text-align: center;
-    color: $color_red;
-    @include font(500, 16px);
+    color: var(--red);
+    @include font(16px, 16px, 500);
     display: none;
     margin-top: 12px;
 
@@ -21,29 +21,29 @@
   .formInput {
     border-radius: 8px;
     padding: 16px;
-    background: $color_plashka;
-    border: 1px solid $color_Minor_text;
-    color: $color_white;
-    @include font(600, 16px);
-   
+    background: var(--plashka);
+    border: 1px solid var(--minorText);
+    color: var(--white);
+    @include font(16px, 16px, 600);
+
 
     &::placeholder {
-      @include font(400, 16px);
-      color: $color_Minor_text;
+      @include font(16px, 16px, 400);
+      color: var(--minorText);
     }
 
     &:focus {
-      border-color: $color_accent;
-      color: $color_accent;
+      border-color: var(--accent);
+      color: var(--accent);
       outline: none;
     }
 
     &.verificationPassed {
-      border: 1px solid $color_green;
+      border: 1px solid var(--green);
     }
 
     &.verificationFailed {
-      border: 1px solid $color_red;
+      border: 1px solid var(--red);
     }
   }
 }

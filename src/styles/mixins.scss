@@ -1,0 +1,11 @@
+@mixin md($resp){
+  @media (max-width: $resp){
+    @content;
+  }
+}
+
+@mixin font($size, $height, $weight) {
+  font-size: $size;
+  line-height: $height;
+  font-weight: $weight;
+}
