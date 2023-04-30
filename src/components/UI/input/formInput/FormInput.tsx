@@ -3,6 +3,7 @@ import React from 'react';
 import styles from './FormInput.module.scss';
 
 interface FromInputTypes {
+  key?: any;
   type?: React.HTMLInputTypeAttribute;
   value: string;
   onChange: (str: string) => void;

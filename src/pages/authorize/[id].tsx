@@ -3,51 +3,39 @@ import { useRouter } from 'next/router';
 import React, { useEffect, useState } from 'react';
 
 import MainLogo from '@/assets/icons/logo.svg';
-import FormButton from '@/components/ui/button/formButton/FormButton';
-import FormInput from '@/components/ui/input/formInput/FormInput';
-import registration from '@/store/registration';
 
 import styles from './Authorize.module.scss';
+import Form from '@/components/views/authorizeViews/Form';
+import { IFormField, IUser } from './authorize.types';
+import BottomButtons from '@/components/views/authorizeViews/BottomButtons/BottomButtons';
 
-interface formField {
-  value: string;
-  isValid: boolean | null;
-}
 
-const emailRegExp = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
+
+
 
 const AuthorizeSubPage = () => {
-  const [login, setLogin] = useState<formField>({ value: '', isValid: null });
-  const [password, setPassword] = useState<formField>({ value: '', isValid: null });
-  const [passwordRepeat, setPasswordRepeat] = useState<formField>({ value: '', isValid: null });
-  const [email, setEmail] = useState<formField>({ value: '', isValid: null });
 
   const [pageType, setPageType] = useState<string>('login');
 
-  const changeFields = (value: string, type: string) => {
-    switch (type) {
-      case 'login': {
-        const valid = value === '' ? null : value !== 'Alex';
-        setLogin({ value: value, isValid: valid });
-        break;
-      }
-      case 'password': {
-        const valid = value === '' ? null : value !== '1';
-        setPassword({ value: value, isValid: valid });
-        break;
-      }
-      case 'passwordRepeat': {
-        const valid = value === password.value;
-        setPasswordRepeat({ value, isValid: valid });
-        break;
-      }
-      case 'email': {
-        const valid = emailRegExp.test(value);
-        setEmail({ value, isValid: valid });
-        break;
-      }
-    }
-  };
+
+  const [user, setUser] = useState<IUser>({
+    login: { value: '', isValid: null },
+    password: { value: '', isValid: null },
+    passwordRepeat: { value: '', isValid: null },
+    email:  { value: '', isValid: null },
+  })
+
+  const changeUser = ( login: IFormField, password: IFormField, passwordRepeat: IFormField, email: IFormField, ) => {
+     
+    setUser({
+      login: { value: login.value, isValid: login.isValid },
+      password: { value: password.value, isValid: password.isValid },
+      passwordRepeat: { value: passwordRepeat.value, isValid: passwordRepeat.isValid },
+      email:  { value: email.value, isValid: email.isValid },
+    })
+
+    return true
+  }
 
   const router = useRouter();
 
@@ -61,132 +49,58 @@ const AuthorizeSubPage = () => {
     e.preventDefault();
     switch (pageType) {
       case 'login': {
-        if (login.isValid && password.isValid) {
+        if (user.login.isValid && user.password.isValid) {
           //post request
-          console.log(JSON.stringify({ login: login.value, password: password.value }));
+          console.log(JSON.stringify({ login: user.login.value, password: user.password.value }));
         }
         break;
       }
       case 'registration': {
-        if (login.isValid && password.isValid && passwordRepeat.isValid && email.isValid) {
+        if (user.login.isValid && user.password.isValid && user.passwordRepeat.isValid && user.email.isValid) {
           //post request
-          console.log(JSON.stringify({ login: login.value, password: password.value, email: email.value }));
+          console.log(JSON.stringify({ login: user.login.value, password: user.password.value, email: user.email.value }));
+        }
+        break;
+      }
+      case 'forgotPassword': {
+        if (user.email.isValid) {
+          //post request
+          console.log(JSON.stringify({ email: user.email.value }));
         }
         break;
       }
     }
   };
 
-  const fields = [
-    {
-      placeholder: 'Логин',
-      value: login.value,
-      onChange: (str: string) => changeFields(str, 'login'),
-      status: login.isValid,
-      label: 'Такого пользователя не существует',
-      types: ['login'],
-    },
-  ];
-
   return (
     <div>
-      {fields.map((field, index) => {
-        if (field.types.filter((f) => f === pageType).length === 0) {
-          return null;
-        }
-
-        return (
-          <FormInput
-            key={field.placeholder + index}
-            className={styles.widthInput}
-            placeholder={'Логин'}
-            value={login.value}
-            onChange={(str) => changeFields(str, 'login')}
-            status={login.isValid}
-            label={'Такого пользователя не существует'}
-          />
-        );
-      })}
-
       <div className={styles.authorize_page}>
         <div>
           <div className={styles.logo_wrapper}>
             <Link href="/">
-              <MainLogo className={styles.logo} />
+              <MainLogo 
+                className={styles.logo} 
+                // width={229}
+                // height={53}
+                sizes="(max-width: 229px) 100vw,
+                (max-width: 53px) 53vw,
+                33vw"
+              />
             </Link>
           </div>
-
           <form className={styles.form} onSubmit={submitFormHandler}>
-            {pageType === 'registration' ? (
-              <h1 className={styles.form_title}>Регистрация аккаунта</h1>
-            ) : pageType === 'login' ? (
-              <h1 className={styles.form_title}>Вход в аккаунт</h1>
-            ) : (
-              ''
-            )}
-            <FormInput
-              className={styles.widthInput}
-              placeholder={'Логин'}
-              value={login.value}
-              onChange={(str) => changeFields(str, 'login')}
-              status={login.isValid}
-              label={'Такого пользователя не существует'}
-            />
-            <FormInput
-              className={styles.widthInput}
-              type={'password'}
-              placeholder={'Пароль'}
-              value={password.value}
-              onChange={(str) => changeFields(str, 'password')}
-              status={password.isValid}
-              label={'Неверный пароль'}
-            />
-            {pageType === 'registration' ? (
-              <>
-                <FormInput
-                  className={styles.widthInput}
-                  type={'password'}
-                  placeholder={'Повторите пароль'}
-                  value={passwordRepeat.value}
-                  onChange={(str) => changeFields(str, 'passwordRepeat')}
-                  status={passwordRepeat.isValid}
-                  label={'Пароли не совпадают'}
-                />
-                <FormInput
-                  className={styles.widthInput}
-                  type={'email'}
-                  placeholder={'E-mail'}
-                  value={email.value}
-                  onChange={(str) => changeFields(str, 'email')}
-                  status={email.isValid}
-                  label={'Неверный email'}
-                />
-              </>
-            ) : null}
+            {
+              pageType === 'registration' ? (
+                <h1 className={styles.form_title}>Регистрация аккаунта</h1>
+              ) : pageType === 'login' ? (
+                <h1 className={styles.form_title}>Вход в аккаунт</h1>
+              ) : pageType === 'forgotPassword' || 'message' ? (
+                <h1 className={styles.form_title}>Восстановление пароля</h1>
+              ) : ('')
+            }
+            <Form pageType={pageType} changeUser={changeUser}/>
+            <BottomButtons pageType={pageType} user={user}/>
           </form>
-
-          <div className={styles.buttonWrapper}>
-            {pageType === 'registration' ? (
-              <>
-                <FormButton disabled={!(login.isValid && password.isValid)}>Зарегистрироваться</FormButton>
-                <p className={styles.text}>Уже есть аккаунт?</p>
-                <Link href="/authorize/login" className={styles.link_btn}>
-                  <FormButton active={true}>Войти</FormButton>
-                </Link>
-              </>
-            ) : pageType === 'login' ? (
-              <>
-                <Link href="/" className={styles.link}>
-                  Забыли пароль?
-                </Link>
-                <FormButton disabled={!(login.isValid && password.isValid)}>Войти</FormButton>
-                <p className={styles.text}>Ещё нет аккаунта?</p>
-                <Link href="/authorize/registration" className={styles.link_btn}>
-                  <FormButton active={true}>Зарегистрироваться</FormButton>
-                </Link>
-              </>
-            ) : null}
-          </div>
         </div>
       </div>
     </div>
