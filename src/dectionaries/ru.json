@@ -1,0 +1,15 @@
+{
+  "authForm": {
+    "registerTitle": "Регистрация аккаунта",
+    "loginTitle": "Вход в аккаунт",
+    "username": "Логин",
+    "password": "Пароль",
+    "confirm_password": "Повторите пароль",
+    "email": "E-mail",
+    "alreadyHaveAccount": "Уже есть аккаунт?",
+    "dontHaveAccount": "Ещё нет аккаунта?",
+    "refreshPassword": "Забыли пароль?",
+    "singIn": "Войти",
+    "singUp": "Зарегистрироваться"
+  }
+}
