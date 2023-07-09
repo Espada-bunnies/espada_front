@@ -1,0 +1,82 @@
+@use '@/styles/typography' as *;
+
+.authPage {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  &_title{
+    @extend %g400_20_20;
+    margin-top: 8px;
+  }
+}
+
+
+.authForm{
+  margin-top: 48px;
+  display: flex;
+  flex-direction: column;
+  width: 400px;
+}
+
+.label{
+  background-color: var(--plashka);
+  border: 1px solid var(--minorText);
+  margin-bottom: 16px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  border-radius: 8px;
+  padding: 16px;
+  cursor: text;
+  width: 100%;
+
+  .input{
+    width: 100%;
+    height: 100%;
+  }
+  .placeholder{
+    opacity: 1;
+    transition: .3s;
+    position: absolute;
+    pointer-events: none;
+    color: var(--minorText);
+    @extend %g400_16_16;
+  }
+  .wrong{
+  }
+  .error{
+  }
+
+
+  &.active .placeholder,
+  .input:focus + .placeholder{
+    opacity: 0;
+  }
+}
+
+.mainButton{
+  background-color: var(--accent);
+  padding: 10px;
+  width: 100%;
+  border-radius: 8px;
+  margin-bottom: 24px;
+  @extend %g500_16_20;
+}
+.textDescription{
+  text-align: center;
+  margin-bottom: 12px;
+}
+.sideButton{
+  background-color: var(--background);
+  border: 1px solid var(--accent);
+  padding: 10px;
+  width: 100%;
+  border-radius: 8px;
+  @extend %g500_16_20;
+  text-align: center;
+}
+.refreshLink {
+  color: var(--accent);
+  @extend %g500_16_16;
+  margin-bottom: 12px;
+}

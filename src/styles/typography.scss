@@ -1,0 +1,19 @@
+@mixin font($weight, $size, $height){
+  font-weight: $weight;
+  font-size: $size;
+  line-height: $height;
+}
+
+%g400{
+  font-weight: 400;
+
+  &_20_20{@include font(400, 20px, 20px)}
+  &_16_16{@include font(400, 16px, 16px)}
+}
+
+%g500{
+  font-weight: 500;
+
+  &_16_16{@include font(500, 16px, 16px)}
+  &_16_20{@include font(500, 16px, 20px)}
+}

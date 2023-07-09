@@ -1,0 +1,25 @@
+:root{
+  --white: #E2E6E9;
+  --green: #17C055;
+  --dark: #0C142D;
+  --accent: #6099D5;
+  --minorText: #707891;
+  --plashka: #1E1E37;
+  --background: #2A324B;
+}
+
+*,*:before,*:after{
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  color: var(--white);
+  text-decoration: none;
+  list-style: none;
+  background: none;
+  border: none;
+  outline: none;
+}
+
+button, a{
+  cursor: pointer;
+}
